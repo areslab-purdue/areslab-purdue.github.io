@@ -285,7 +285,7 @@ section {
 
 .research-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 4 columns in one row */
     gap: 2rem;
     margin-bottom: 4rem;
 }
@@ -296,6 +296,9 @@ section {
     border-radius: 8px;
     transition: var(--transition);
     border: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .research-card:hover {
@@ -317,6 +320,7 @@ section {
     color: var(--text-medium);
     margin-bottom: 1.5rem;
     line-height: 1.7;
+    flex-grow: 1;
 }
 
 .card-link {
@@ -1075,7 +1079,20 @@ section {
     animation-delay: 0.2s;
 }
 
-/* Responsive Design */
+/* Responsive Design - Research Grid Specific */
+@media (max-width: 1200px) {
+    .research-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .research-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}
+
+/* General Responsive Design */
 @media (max-width: 968px) {
     .hero .container {
         grid-template-columns: 1fr;
@@ -1165,7 +1182,6 @@ section {
         padding: 3rem 0;
     }
 
-    .research-grid,
     .people-grid,
     .opportunity-cards {
         grid-template-columns: 1fr;
